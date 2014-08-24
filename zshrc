@@ -13,6 +13,10 @@ ZSH_THEME="gnzh"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+if [ -f ~/.zsh_aliases ]; then 
+    . ~/.zsh_aliases
+fi 
+
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
@@ -101,33 +105,6 @@ function man () {
 # history
 export HISTCONTROL=erasedups
 export HISTTIMEFORMAT='%F %T '
-# grep
-alias grepj='find . -path "./out" -prune -o  -type f -name "*\.java" -print0 | xargs -0 grep --color -n'
-alias grepc="find . -path "./out" -prune -o  -type f \( -name '*.c' -o -name '*.cc' -o -name '*.cpp' -o -name '*.h' \) -print0 | xargs -0 grep --color -n"
-alias grepc1="find . -path "./out" -prune -o  -type f \( -name '*.c' -o -name '*.cc' -o -name '*.cpp' \) -print0 | xargs -0 grep --color -n"
-alias greph="find . -path './out' -prune -o  -type f \( -name '*.h' \) -print0 | xargs -0 grep --color -n"
-alias grepmk="find . -path './out' -prune -o -type f \( -iname '*.mk' -o -iname 'Makefile' \) -print0 | xargs -0 grep --color -n"
-alias grepxml="find . -path './out' -prune -o -type f \( -iname '*.xml' -o -iname 'Makefile' \) -print0 | xargs -0 grep --color -n"
-alias grepkc="find . -path './out' -prune -o -type f \( -iname 'kconfig' -o -iname 'Makefile' \) -print0 | xargs -0 grep --color -n"
-alias greppy="find . -path './out' -prune -o -type f \( -iname '*.py' \) -print0 | xargs -0 grep --color -n"
-alias ff="find . -name"
-# some more ls aliases
-alias ll='ls -l --color'
-alias la='ls -A'
-alias l='ls -CF'
-alias j='jobs'
-alias grep='grep --color'
-#alias gvim='LANG=C LESS_TERMCAP_mb='' LESS_TERMCAP_md='' LESS_TERMCAP_me='' LESS_TERMCAP_se='' LESS_TERMCAP_so='' LESS_TERMCAP_ue='' LESS_TERMCAP_us='' gvim'
-alias gvim='LANG=en_US.utf8 LESS_TERMCAP_mb='' LESS_TERMCAP_md='' LESS_TERMCAP_me='' LESS_TERMCAP_se='' LESS_TERMCAP_so='' LESS_TERMCAP_ue='' LESS_TERMCAP_us='' gvim'
-#alias vi='vi -u NONE'
-alias apti='sudo apt-get install'
-alias apts='apt-cache search'
-alias lt="ls -R|grep :|sed -e 's/:$//;s/[^-][^\/]*\//--/g;s/^/ /;s/-/|/'"
-alias gq='qgit &'
-#alias pwd='python -c "import gtk; cb = gtk.clipboard_get(); cb.set_text(\"$PWD\"); cb.store()"; pwd'
-alias psl='ps -A -Lo uname,pid,ppid,pgid,nlwp,lwp,stat,command'
-alias acp='rsync -avI –-progress'
-alias ag='ag -C1'
 
 function tl() 
 {
@@ -148,12 +125,6 @@ function tl()
 #    export PATH="$HOME/.pyenv/bin:$PATH"
 #fi
 
-# docker
-alias dip="docker inspect --format=\"{{ .NetworkSettings.IPAddress }}\""
-drm() { docker rm $(docker ps -q -a); }
-#dri() { docker rmi $(docker images -q); }
-alias dl="docker ps -l -q"
-alias ds="docker ps -a"
 
 function exists { which $1 &> /dev/null }
 
