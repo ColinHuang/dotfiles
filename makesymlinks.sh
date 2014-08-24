@@ -62,5 +62,5 @@ fi
 }
 
 install_zsh
-
+ln -fs $dir/oh-my-zsh/themes/gnzh.zsh-theme ~/.oh-my-zsh/themes/gnzh.zsh-theme
 
