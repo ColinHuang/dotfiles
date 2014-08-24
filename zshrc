@@ -187,7 +187,7 @@ function ppkill() {
     fi
     ppgrep $QUERY | xargs kill $*
 }
-source ~/.fzf.zsh
+#source ~/.fzf.zsh
 
 alias les="percol"
 alias pst="ps axjf"
