@@ -1,0 +1,45 @@
+[branch]
+    autosetuprebase = always
+[user]
+        name = Colin 
+[alias]
+	co = checkout
+	ci = commit
+    unci = uncommit
+    uncommit = reset --soft 'HEAD^'
+	st = status
+	br = branch
+    replace = commit -C HEAD --amend
+    cc = commit --amend
+    sh = !git-sh
+    weekly = log --oneline --author=othree --since=7days
+    daily = log --oneline --author=othree --since=1days
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	ui = auto
+    log = auto
+[core]
+	; excludesfile = /Users/othree/gitignore/
+    editor = /usr/local/bin/vim
+	excludesfile = /Users/othree/.gitignore_global
+[apply]
+	whitespace = nowarn
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = No
+[push]
+	default = matching
+[gui]
+    encoding = utf-8
+[i18n]
+    commitEncoding = utf-8
+    logOutputEncoding = utf-8

@@ -5,9 +5,9 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-#ZSH_THEME="robbyrussell"
+ZSH_THEME="robbyrussell"
 #ZSH_THEME="juanghurtado"
-ZSH_THEME="gnzh"
+#ZSH_THEME="gnzh"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -160,8 +160,6 @@ function ppkill() {
 }
 #source ~/.fzf.zsh
 
-alias les="percol"
-alias pst="ps axjf"
 #bindkey "^J" backward-char
 #bindkey "^H" backward-word #Notice!
 #bindkey "^K" forward-char

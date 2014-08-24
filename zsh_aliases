@@ -33,3 +33,7 @@ drm() { docker rm $(docker ps -q -a); }
 #dri() { docker rmi $(docker images -q); }
 alias dl="docker ps -l -q"
 alias ds="docker ps -a"
+
+
+alias les="percol"
+alias pst="ps axjf"

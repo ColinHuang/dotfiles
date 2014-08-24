@@ -33,6 +33,10 @@ cd ~/dotfiles
 ./makesymlinks.sh
 ```
 
+Something else
+--------------
+1. Compile YCM before using it. Please check https://github.com/Valloric/YouCompleteMe
+
 
 Reference
 ---------
