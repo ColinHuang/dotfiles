@@ -8,7 +8,7 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="vimrc vim zshrc oh-my-zsh "    # list of files/folders to symlink in homedir
+files="vimrc vim zshrc"    # list of files/folders to symlink in homedir
 
 ##########
 
@@ -30,12 +30,17 @@ for file in $files; do
     ln -s $dir/$file ~/.$file
 done
 
+
+vim +BundleInstall +qall
+
+
 install_zsh () {
 # Test to see if zshell is installed.  If it is:
 if [ -f /bin/zsh -o -f /usr/bin/zsh ]; then
     # Clone my oh-my-zsh repository from GitHub only if it isn't already present
-    if [[ ! -d $dir/oh-my-zsh/ ]]; then
-        git clone http://github.com/robbyrussell/oh-my-zsh.git
+    if [[ ! -d $HOME/.oh-my-zsh/ ]]; then
+        cd $HOME
+        git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
     fi
     # Set the default shell to zsh if it isn't currently set to zsh
     if [[ ! $(echo $SHELL) == $(which zsh) ]]; then
@@ -46,7 +51,7 @@ else
     platform=$(uname);
     # If the platform is Linux, try an apt-get to install zsh and then recurse
     if [[ $platform == 'Linux' ]]; then
-        sudo apt-get install zsh
+        sudo apt-get -y install zsh
         install_zsh
     # If the platform is OS X, tell the user to install zsh :)
     elif [[ $platform == 'Darwin' ]]; then
@@ -56,4 +61,6 @@ else
 fi
 }
 
-#install_zsh
+install_zsh
+
+
