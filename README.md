@@ -32,3 +32,9 @@ git clone https://github.com/ColinHuang/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 ./makesymlinks.sh
 ```
+
+
+Reference
+---------
+Reference from 
+- https://github.com/michaeljsmalley/dotfiles
