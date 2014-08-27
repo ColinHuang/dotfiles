@@ -1,7 +1,7 @@
 [branch]
     autosetuprebase = always
 [user]
-        name = Colin 
+    name = Colin 
 [alias]
 	co = checkout
 	ci = commit
