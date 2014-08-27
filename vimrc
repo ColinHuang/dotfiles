@@ -130,7 +130,8 @@ let g:pymode_rope = 0
 map <F4> :TagbarToggle<CR> 
 " autofocus on tagbar open 
 let g:tagbar_autofocus = 1 
-
+" Assuming the pylint window shows a scratch buffer, you can close this automatically
+:autocmd WinEnter * if winnr('$') == 1 && ! empty(&buftype) && ! &modified | quit | endi
 
 " ==========================================================================
 " Powerline setup
