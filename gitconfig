@@ -5,7 +5,9 @@
 	email = colinhuang@qnap.com
 [alias]
 	co = checkout
-	ci = commit
+    ci = commit
+    d = diff -w --color-words
+    l = log --pretty=oneline --graph
     unci = uncommit
     uncommit = reset --soft 'HEAD^'
 	st = status
