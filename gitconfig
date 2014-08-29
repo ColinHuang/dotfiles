@@ -2,6 +2,7 @@
     autosetuprebase = always
 [user]
     name = Colin 
+	email = colinhuang@qnap.com
 [alias]
 	co = checkout
 	ci = commit
@@ -12,8 +13,8 @@
     replace = commit -C HEAD --amend
     cc = commit --amend
     sh = !git-sh
-    weekly = log --oneline --author=othree --since=7days
-    daily = log --oneline --author=othree --since=1days
+    weekly = log --oneline --author=colinhuang --since=7days
+    daily = log --oneline --author=colinhuang --since=1days
 [color]
 	diff = auto
 	status = auto
@@ -21,17 +22,17 @@
 	ui = auto
     log = auto
 [core]
-	; excludesfile = /Users/othree/gitignore/
-    editor = /usr/local/bin/vim
-	excludesfile = /Users/othree/.gitignore_global
+    ; excludesfile = /Users/colin/gitignore/
+    editor = /usr/bin/vim
+	excludesfile = /home/colin/.gitignore_global
 [apply]
 	whitespace = nowarn
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+;[mergetool "sourcetree"]
+;    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+;    trustExitCode = true
 [diff]
 	tool = vimdiff
 [difftool]
