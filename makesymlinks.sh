@@ -32,6 +32,9 @@ done
 
 
 vim +BundleInstall +qall
+cd ~/.vim/bundle/YouCompleteMe
+./install.sh --clang-completer
+
 
 
 install_zsh () {
