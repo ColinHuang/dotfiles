@@ -131,7 +131,7 @@ map <F4> :TagbarToggle<CR>
 " autofocus on tagbar open 
 let g:tagbar_autofocus = 1 
 " Assuming the pylint window shows a scratch buffer, you can close this automatically
-:autocmd WinEnter * if winnr('$') == 1 && ! empty(&buftype) && ! &modified | quit | endi
+autocmd WinEnter * if winnr('$') == 1 && ! empty(&buftype) && ! &modified | quit | endi
 
 " ==========================================================================
 " Powerline setup
@@ -146,7 +146,6 @@ let g:ycm_autoclose_preview_window_after_completion=1
 "let g:ycm_register_as_syntastic_checker = 0
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
-
 " ===========================================================================
 " Vundle
 " Brief help:
@@ -155,10 +154,9 @@ nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " $ BundleSearch(!) foo - search (or refresh cache first) for foo
 " $ BundleClean(!) - confirm (or auto-approve) removal of unused bundles
 " ===========================================================================
-set nocompatible             " not compatible with the old-fashion vi mode
-filetype off                 " required!
-filetype plugin indent on    " required
-"
+set nocompatible             " be iMproved, required
+filetype off                 " required
+
 " http://www.erikzaadi.com/2012/03/19/auto-installing-vundle-from-your-vimrc/
 " Setting up Vundle - the vim plugin bundler
 let iCanHazVundle=1
@@ -172,10 +170,9 @@ if !filereadable(vundle_readme)
 endif
 
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call vundle#begin()
 
-" let Vundle manage Vundle
-" required!
+" let Vundle manage Vundle, required
 Bundle 'gmarik/vundle'
 
 " My Bundles here:
@@ -188,6 +185,11 @@ Bundle 'klen/python-mode'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'tpope/vim-fugitive' 
 Bundle 'majutsushi/tagbar'
+
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
 
 " L9
 " FuzzyFinder
