@@ -32,6 +32,9 @@ done
 
 
 vim +BundleInstall +qall
+
+sudo apt-get -y install python-dev
+sudo apt-get -y install build-essential cmake 
 cd ~/.vim/bundle/YouCompleteMe
 ./install.sh --clang-completer
 

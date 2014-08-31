@@ -1,12 +1,66 @@
+
+" ===========================================================================
+" Vundle
+" Brief help:
+" $ BundleList - list configured bundles
+" $ BundleInstall(!) - install (update) bundles
+" $ BundleSearch(!) foo - search (or refresh cache first) for foo
+" $ BundleClean(!) - confirm (or auto-approve) removal of unused bundles
+" ===========================================================================
+set nocompatible             " be iMproved, required
+filetype off                 " required
+
+" http://www.erikzaadi.com/2012/03/19/auto-installing-vundle-from-your-vimrc/
+" Setting up Vundle - the vim plugin bundler
+let iCanHazVundle=1
+let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+if !filereadable(vundle_readme)
+  echo "Installing Vundle.."
+  echo ""
+  silent !mkdir -p ~/.vim/bundle
+  silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+  let iCanHazVundle=0
+endif
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Bundle 'gmarik/vundle'
+
+" My Bundles here:
+"
+" original repos on github
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'kien/ctrlp.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'klen/python-mode'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'tpope/vim-fugitive'
+Bundle 'majutsushi/tagbar'
+Bundle 'elzr/vim-json'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+" L9
+" FuzzyFinder
+" vim-snipnate
+" ack
+" mru
+" supertab
+
+
+" ===========================================================================
+" General setting
+" ===========================================================================
 colorscheme yzlin256_2
 set t_Co=256 
 "let &colorcolumn=join(range(81,999),",")
 "highlight ColorColumn ctermbg=235 guibg=#2c2d27
 
 
-" ===========================================================================
-" General setting
-" ===========================================================================
 set nobackup
 set nowb  
 set noswapfile  
@@ -124,6 +178,7 @@ let g:pymode_folding = 0
 let g:pymode_rope = 0
 " let g:pymode_lint_on_write = 0
 " let g:pymode_lint_signs = 0
+autocmd BufRead *.py setlocal colorcolumn=0
 
 " Tagbar -----------------------------  
 " toggle tagbar display 
@@ -145,56 +200,4 @@ set laststatus=2
 let g:ycm_autoclose_preview_window_after_completion=1
 "let g:ycm_register_as_syntastic_checker = 0
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
-" ===========================================================================
-" Vundle
-" Brief help:
-" $ BundleList - list configured bundles
-" $ BundleInstall(!) - install (update) bundles
-" $ BundleSearch(!) foo - search (or refresh cache first) for foo
-" $ BundleClean(!) - confirm (or auto-approve) removal of unused bundles
-" ===========================================================================
-set nocompatible             " be iMproved, required
-filetype off                 " required
-
-" http://www.erikzaadi.com/2012/03/19/auto-installing-vundle-from-your-vimrc/
-" Setting up Vundle - the vim plugin bundler
-let iCanHazVundle=1
-let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
-if !filereadable(vundle_readme)
-  echo "Installing Vundle.."
-  echo ""
-  silent !mkdir -p ~/.vim/bundle
-  silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
-  let iCanHazVundle=0
-endif
-
-set rtp+=~/.vim/bundle/vundle/
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Bundle 'gmarik/vundle'
-
-" My Bundles here:
-"
-" original repos on github
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'klen/python-mode'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'tpope/vim-fugitive' 
-Bundle 'majutsushi/tagbar'
-
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-
-" L9
-" FuzzyFinder
-" vim-snipnate
-" ack
-" mru
-" supertab
 
