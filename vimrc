@@ -31,7 +31,7 @@ Plugin 'gmarik/vundle'
 " My plugins here:
 "
 " original repos on github
-Plugin 'Lokaltog/vim-powerline'
+Plugin 'bling/vim-airline'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'klen/python-mode'
@@ -47,13 +47,10 @@ filetype plugin indent on    " required
 " L9
 " FuzzyFinder
 " vim-snipnate
-" ack
 " mru
 " supertab
 " vim-airline
-" vim-slim
 " mileszs/ack.vim
-" dag/vim-fish
 
 " ===========================================================================
 " General setting
