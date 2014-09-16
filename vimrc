@@ -196,7 +196,7 @@ let g:pymode_trim_whitespaces = 1
 " let g:pymode_lint_signs = 0
 autocmd BufRead *.py setlocal colorcolumn=0
 " Assuming the pylint window shows a scratch buffer, you can close this automatically
-autocmd WinEnter * if winnr('$') == 1 && ! empty(&buftype) && ! &modified | quit | endi
+autocmd WinEnter * if winnr('$') == 1 && ! empty(&buftype) && ! &modified | quit | endif
 
 " ===========================================================================
 " Tagbar
