@@ -7,7 +7,7 @@
 " $ PluginSearch(!) foo - search (or refresh cache first) for foo
 " $ PluginClean(!) - confirm (or auto-approve) removal of unused bundles
 " ===========================================================================
-set nocompatible             " be iMproved, required
+set nocompatible             " be improved, required
 filetype off                 " required
 
 " http://www.erikzaadi.com/2012/03/19/auto-installing-vundle-from-your-vimrc/
@@ -50,25 +50,25 @@ filetype plugin indent on    " required
 " ack
 " mru
 " supertab
-
+" vim-airline
+" vim-slim
+" mileszs/ack.vim
+" dag/vim-fish
 
 " ===========================================================================
 " General setting
 " ===========================================================================
+set nocompatible            " Use vim, no vi defaults
 colorscheme yzlin256_2
 set t_Co=256 
 "let &colorcolumn=join(range(81,999),",")
 "highlight ColorColumn ctermbg=235 guibg=#2c2d27
 
-
 set nobackup
-set nowb  
+set nowritebackup
 set noswapfile  
 set cursorline
-
-
-set nu
-
+set number
 set fileencoding=utf-8
 set termencoding=utf-8
 set fileencodings=ucs-bom,utf-8,gbk,big5,utf8
@@ -82,10 +82,6 @@ set softtabstop=4          " Makes the spaces feel like real tabs
 set backspace=indent,eol,start
 
 
-" Use Vim settings, rather then Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-set nocompatible
-
 " allow backspacing over everything in insert mode
 
 set history=50		" keep 50 lines of command line history
@@ -93,6 +89,15 @@ set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
 set autoread    " Set to auto read when a file is changed from the outside
+set mouse=a
+set hlsearch
+syntax on
+
+"
+"" Custom Mappings
+"
+
+let mapleader=","
 
 " Move cursor by display lines when wrapping
 nnoremap j gj
@@ -102,23 +107,34 @@ nnoremap <Up>   gk
 nnoremap gj j
 nnoremap gk k
 
-let mapleader=","
+" format the entire file
+nmap <leader>fef ggVG=
 
- " Don't use Ex mode, use Q for formatting
-map Q gq
+" Move around splits with <c-hjkl>
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+
+" Quick ESC
+imap jj <ESC>
+
+" Switch/create tab(s) in quick - Really handy!
+" map <C-l> :tabn<CR>
+" map <C-h> :tabp<CR>
+" map <C-t> :tabnew<CR>
+" map <C-w> :tabclose<CR>
+
+"" Alt+leftarrow will go one window left, etc.
+nmap <silent> <A-Up> :wincmd k<CR>
+nmap <silent> <A-Down> :wincmd j<CR>
+nmap <silent> <A-Left> :wincmd h<CR>
+nmap <silent> <A-Right> :wincmd l<CR>
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
 
-set mouse=a	" Enable mouse usage (all modes)  
-
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if &t_Co > 2 || has("gui_running")
-  syntax on
-  set hlsearch
-endif
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
@@ -158,16 +174,10 @@ if !exists(":DiffOrig")
 endif
 
 
-
 if ! has('gui')
   highlight Comment ctermfg=gray ctermbg=darkblue
 endif
 
-
-" tagbar
-nmap <F8> :TagbarToggle<CR>
-" set focus to TagBar when opening it
-"let g:tagbar_autofocus = 1
 
 " ===========================================================================
 " NERDTree
@@ -190,14 +200,14 @@ let g:pymode_trim_whitespaces = 1
 " let g:pymode_lint_on_write = 0
 " let g:pymode_lint_signs = 0
 autocmd BufRead *.py setlocal colorcolumn=0
-
-" Tagbar -----------------------------  
-" toggle tagbar display 
-map <F4> :TagbarToggle<CR> 
-" autofocus on tagbar open 
-let g:tagbar_autofocus = 1 
 " Assuming the pylint window shows a scratch buffer, you can close this automatically
 autocmd WinEnter * if winnr('$') == 1 && ! empty(&buftype) && ! &modified | quit | endi
+
+" ===========================================================================
+" Tagbar
+" ===========================================================================
+nmap <F8> :TagbarToggle<CR>
+let g:tagbar_autofocus = 1  "set focus to TagBar when opening it
 autocmd BufEnter *.py nested TagbarOpen
 
 " ==========================================================================
@@ -219,7 +229,6 @@ nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,node_modules,build     " MacOSX/Linux
 
 let g:ctrlp_by_filename = 1
-
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn|tmp)$',
   \ 'file': '\v\.(exe|so|dll)$',
