@@ -30,9 +30,11 @@ alias ag='ag -C1'
 # docker
 alias dip="docker inspect --format=\"{{ .NetworkSettings.IPAddress }}\""
 drm() { docker rm $(docker ps -q -a); }
+dst() { docker stop $(docker ps -q -a); }
 #dri() { docker rmi $(docker images -q); }
 alias dl="docker ps -l -q"
 alias ds="docker ps -a"
+alias dim="docker images"
 
 
 alias les="percol"
