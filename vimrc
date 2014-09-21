@@ -206,6 +206,8 @@ nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " ==========================================================================
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,node_modules,build     " MacOSX/Linux
 
+let g:ctrlp_by_filename = 1
+
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn|tmp)$',
   \ 'file': '\v\.(exe|so|dll)$',
