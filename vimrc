@@ -201,3 +201,20 @@ let g:ycm_autoclose_preview_window_after_completion=1
 "let g:ycm_register_as_syntastic_checker = 0
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
+" ==========================================================================
+"CtrlP
+" ==========================================================================
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,node_modules,build     " MacOSX/Linux
+
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn|tmp)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
+let g:ctrlp_user_command = {
+    \ 'types': {
+        \ 1: ['.git', 'cd %s && git ls-files . -co --exclude-standard'],
+        \ 2: ['.hg', 'hg --cwd %s locate -I .'],
+        \ },
+    \ 'fallback': 'find %s -type f'
+    \ }
