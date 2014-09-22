@@ -2,10 +2,10 @@
 " ===========================================================================
 " Vundle
 " Brief help:
-" $ BundleList - list configured bundles
-" $ BundleInstall(!) - install (update) bundles
-" $ BundleSearch(!) foo - search (or refresh cache first) for foo
-" $ BundleClean(!) - confirm (or auto-approve) removal of unused bundles
+" $ PluginList - list configured bundles
+" $ PluginInstall(!) - install (update) bundles
+" $ PluginSearch(!) foo - search (or refresh cache first) for foo
+" $ PluginClean(!) - confirm (or auto-approve) removal of unused bundles
 " ===========================================================================
 set nocompatible             " be iMproved, required
 filetype off                 " required
@@ -26,19 +26,19 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#begin()
 
 " let Vundle manage Vundle, required
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
-" My Bundles here:
+" My plugins here:
 "
 " original repos on github
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'klen/python-mode'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'tpope/vim-fugitive'
-Bundle 'majutsushi/tagbar'
-Bundle 'elzr/vim-json'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'klen/python-mode'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'tpope/vim-fugitive'
+Plugin 'majutsushi/tagbar'
+Plugin 'elzr/vim-json'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

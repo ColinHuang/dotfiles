@@ -31,7 +31,7 @@ for file in $files; do
 done
 
 
-vim +BundleInstall +qall
+vim +PluginInstall +qall
 
 sudo apt-get -y install python-dev
 sudo apt-get -y install build-essential cmake 
