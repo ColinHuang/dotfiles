@@ -7,7 +7,7 @@
 	co = checkout
     ci = commit
     d = diff -w --color-words
-    l = log --pretty=oneline --graph
+    l = log --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     unci = uncommit
     uncommit = reset --soft 'HEAD^'
 	st = status
