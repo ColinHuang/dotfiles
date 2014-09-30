@@ -94,6 +94,16 @@ set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
 set autoread    " Set to auto read when a file is changed from the outside
 
+" Move cursor by display lines when wrapping
+nnoremap j gj
+nnoremap k gk
+nnoremap <Down> gj
+nnoremap <Up>   gk
+nnoremap gj j
+nnoremap gk k
+
+let mapleader=","
+
  " Don't use Ex mode, use Q for formatting
 map Q gq
 
