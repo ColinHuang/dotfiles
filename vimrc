@@ -198,6 +198,7 @@ map <F4> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1 
 " Assuming the pylint window shows a scratch buffer, you can close this automatically
 autocmd WinEnter * if winnr('$') == 1 && ! empty(&buftype) && ! &modified | quit | endi
+autocmd BufEnter *.py nested TagbarOpen
 
 " ==========================================================================
 " Powerline setup
