@@ -1,12 +1,11 @@
-
-" ===========================================================================
+" ==========================================================================
 " Vundle
 " Brief help:
 " $ PluginList - list configured bundles
 " $ PluginInstall(!) - install (update) bundles
 " $ PluginSearch(!) foo - search (or refresh cache first) for foo
 " $ PluginClean(!) - confirm (or auto-approve) removal of unused bundles
-" ===========================================================================
+" ==========================================================================
 set nocompatible             " be improved, required
 filetype off                 " required
 
@@ -52,9 +51,9 @@ filetype plugin indent on    " required
 " vim-airline
 " mileszs/ack.vim
 
-" ===========================================================================
+" ==========================================================================
 " General setting
-" ===========================================================================
+" ==========================================================================
 set nocompatible            " Use vim, no vi defaults
 colorscheme yzlin256_2
 set t_Co=256 
@@ -93,11 +92,17 @@ syntax on
 " No show command
 autocmd VimEnter * set nosc
 
-"
-"" Custom Mappings
-"
-
+" ==========================================================================
+" Custom Mappings
+" ==========================================================================
 let mapleader=","
+
+" Buffer fast save
+nmap <leader>w :w<cr>
+
+" Yank & paste via OS X clipboard
+map <leader>p "*p
+map <leader>y "*y
 
 " Move cursor by display lines when wrapping
 nnoremap j gj
@@ -125,12 +130,6 @@ imap jj <ESC>
 " map <C-h> :tabp<CR>
 " map <C-t> :tabnew<CR>
 " map <C-w> :tabclose<CR>
-
-"" Alt+leftarrow will go one window left, etc.
-nmap <silent> <A-Up> :wincmd k<CR>
-nmap <silent> <A-Down> :wincmd j<CR>
-nmap <silent> <A-Left> :wincmd h<CR>
-nmap <silent> <A-Right> :wincmd l<CR>
 
 " Tab between buffers
 noremap <tab> <c-w><c-w>
@@ -171,36 +170,32 @@ if ! has('gui')
 endif
 
 
-" ===========================================================================
+" ==========================================================================
 " NERDTree
-" ===========================================================================
-"let NERDTreeChDirMode=2
+" ==========================================================================
+" let NERDTreeChDirMode=2
 let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.swp$']
 let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\~$']
-"let NERDTreeSortOrder=['^__\.py$', '\/$', '\.py$', '*', '\.swp$',  '\~$']
 let NERDTreeShowBookmarks=1
 map <F2> :NERDTreeToggle<CR>
 " Automatically quit vim if NERDTree is last and only buffer
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif 
 
-" ===========================================================================
+" ==========================================================================
 " python-mode
-" ===========================================================================
+" ==========================================================================
 let g:pymode_folding = 0
 let g:pymode_rope = 0
 let g:pymode_trim_whitespaces = 1
 let g:pymode_options_colorcolumn = 0
-" let g:pymode_lint_on_write = 0
-" let g:pymode_lint_signs = 0
-" autocmd BufRead *.py setlocal colorcolumn=0 " Fix by pymode_options_colorcolumn
-" Assuming the pylint window shows a scratch buffer, you can close this automatically
 autocmd WinEnter * if winnr('$') == 1 && ! empty(&buftype) && ! &modified | quit | endif
 
-" ===========================================================================
+" ==========================================================================
 " Tagbar
-" ===========================================================================
+" ==========================================================================
 nmap <F8> :TagbarToggle<CR>
-let g:tagbar_autofocus = 1  "set focus to TagBar when opening it
+" set focus to TagBar when opening it. Conflict with TagbarOpen setting
+" let g:tagbar_autofocus = 0
 autocmd BufEnter *.py nested TagbarOpen
 
 " ==========================================================================
@@ -213,7 +208,6 @@ set laststatus=2
 " YouCompleteMe
 " ==========================================================================
 let g:ycm_autoclose_preview_window_after_completion=1
-"let g:ycm_register_as_syntastic_checker = 0
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " ==========================================================================
@@ -233,3 +227,4 @@ let g:ctrlp_user_command = {
         \ },
     \ 'fallback': 'find %s -type f'
     \ }
+
