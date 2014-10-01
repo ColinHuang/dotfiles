@@ -189,9 +189,10 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 let g:pymode_folding = 0
 let g:pymode_rope = 0
 let g:pymode_trim_whitespaces = 1
+let g:pymode_options_colorcolumn = 0
 " let g:pymode_lint_on_write = 0
 " let g:pymode_lint_signs = 0
-autocmd BufRead *.py setlocal colorcolumn=0
+" autocmd BufRead *.py setlocal colorcolumn=0 " Fix by pymode_options_colorcolumn
 " Assuming the pylint window shows a scratch buffer, you can close this automatically
 autocmd WinEnter * if winnr('$') == 1 && ! empty(&buftype) && ! &modified | quit | endif
 
