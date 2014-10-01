@@ -68,26 +68,27 @@ set number
 set fileencoding=utf-8
 set termencoding=utf-8
 set fileencodings=ucs-bom,utf-8,gbk,big5,utf8
-
-" tabs and spaces handling
-set smarttab               "Uses shiftwidth instead of tabstop at start of lines
-set expandtab              "Replaces a <TAB> with spaces--more portable
-set tabstop=4              "4 space tab
-set shiftwidth=4           "The amount to block indent when using < and >
-set softtabstop=4          " Makes the spaces feel like real tabs
-set backspace=indent,eol,start
-
-
-" allow backspacing over everything in insert mode
-
-set history=50		" keep 50 lines of command line history
+set history=50	" keep 50 lines of command line history
+set laststatus=2" Displaying status line always
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
-set incsearch		" do incremental searching
 set autoread    " Set to auto read when a file is changed from the outside
 set mouse=a
-set hlsearch
 syntax on
+
+" Tabs and spaces handling
+set smarttab               " Uses shiftwidth instead of tabstop at start of lines
+set expandtab              " Replaces a <TAB> with spaces--more portable
+set tabstop=4              " 4 space tab
+set shiftwidth=4           " The amount to block indent when using < and >
+set softtabstop=4          " Makes the spaces feel like real tabs
+set backspace=indent,eol,start  " allow backspacing over everything in insert mode
+
+" Search
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
 
 " No show command
 autocmd VimEnter * set nosc
@@ -99,6 +100,13 @@ let mapleader=","
 
 " Buffer fast save
 nmap <leader>w :w<cr>
+
+" Tired of clearing highlighted searches
+nmap <silent> ,/ :nohlsearch<CR>
+
+" Quickly edit/reload the vimrc file
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 " Yank & paste via OS X clipboard
 map <leader>p "*p
@@ -112,10 +120,10 @@ nnoremap <Up>   gk
 nnoremap gj j
 nnoremap gk k
 
-" format the entire file
+" Format the entire file
 nmap <leader>fef ggVG=
 
-" Move around splits with <c-hjkl>
+" Move around splits window with <c-hjkl>
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
@@ -197,12 +205,6 @@ nmap <F8> :TagbarToggle<CR>
 " set focus to TagBar when opening it. Conflict with TagbarOpen setting
 " let g:tagbar_autofocus = 0
 autocmd BufEnter *.py nested TagbarOpen
-
-" ==========================================================================
-" Powerline setup
-" ==========================================================================
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
-set laststatus=2
 
 " ==========================================================================
 " YouCompleteMe
