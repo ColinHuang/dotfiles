@@ -150,6 +150,10 @@ nnoremap <leader><leader> <C-^>
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
 
+" TODO and FIXME list in vim
+command Todo noautocmd vimgrep /TODO\|FIXME/j * | cw
+"command Todo Ack! 'TODO\|FIXME' " If use the ack-vim plugin
+
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
@@ -230,4 +234,3 @@ let g:ctrlp_user_command = {
         \ },
     \ 'fallback': 'find %s -type f'
     \ }
-
