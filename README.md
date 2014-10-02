@@ -38,6 +38,24 @@ Something else
 1. Compile YCM before using it. Please check https://github.com/Valloric/YouCompleteMe
 
 
+
+Keyboard Shortcuts (Temp)
+------------------
+* ```F1``` Toggle NERDTree.
+* ```F2``` Toggle TagBar.
+* ```F3``` Print PHP test code.
+* ```F4``` Toggle TagList.
+* ```F5 ESC``` Enable Fast PHP Folds.
+* ```F6 ESC``` Enable PHP Folds.
+* ```F7 ESC``` Disable PHP Folds.
+
+Automation (Temp)
+----------
+* Create a new *.html file with automatic content.
+* Remove tailing spaces.
+* Replace tabs with 4 spaces.
+* When saving a *.scss file, a mapping CSS file will be created or updated.
+
 Reference
 ---------
 Reference from 
