@@ -38,6 +38,8 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-fugitive'
 Plugin 'majutsushi/tagbar'
 Plugin 'elzr/vim-json'
+" Fix YCM press enter will focus to new line
+Plugin 'ervandew/supertab' 
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -47,8 +49,6 @@ filetype plugin indent on    " required
 " FuzzyFinder
 " vim-snipnate
 " mru
-" supertab
-" vim-airline
 " mileszs/ack.vim
 
 " ==========================================================================
