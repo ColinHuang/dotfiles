@@ -41,6 +41,7 @@ Plugin 'elzr/vim-json'
 " Fix YCM press enter will focus to new line
 Plugin 'ervandew/supertab' 
 Plugin 'tomtom/tcomment_vim'
+Plugin 'airblade/vim-gitgutter'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -234,3 +235,10 @@ let g:ctrlp_user_command = {
         \ },
     \ 'fallback': 'find %s -type f'
     \ }
+
+" ==========================================================================
+" vim-gitgutter
+" ==========================================================================
+" highlight clear SignColumn
+highlight SignColumn ctermbg=233
+let g:gitgutter_map_keys = 0
