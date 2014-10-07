@@ -30,7 +30,7 @@ Installation
 ``` bash
 git clone https://github.com/ColinHuang/dotfiles.git ~/dotfiles
 cd ~/dotfiles
-./makesymlinks.sh
+./install.sh
 ```
 
 Something else
