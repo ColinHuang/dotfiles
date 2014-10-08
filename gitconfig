@@ -2,7 +2,7 @@
     autosetuprebase = always
 [user]
     name = Colin 
-	email = colinhuang@qnap.com
+	email = sidawei@gmail.com
 [alias]
 	co = checkout
     ci = commit

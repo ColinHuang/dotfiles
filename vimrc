@@ -38,8 +38,6 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-fugitive'
 Plugin 'majutsushi/tagbar'
 Plugin 'elzr/vim-json'
-" Fix YCM press enter will focus to new line
-Plugin 'ervandew/supertab' 
 Plugin 'tomtom/tcomment_vim'
 Plugin 'airblade/vim-gitgutter'
 
