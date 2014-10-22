@@ -101,6 +101,9 @@ let mapleader=","
 " Buffer fast save
 nmap <leader>w :w<cr>
 
+" Quick ESC
+imap jj <ESC>
+
 " Tired of clearing highlighted searches
 nmap <silent> ,/ :nohlsearch<CR>
 
@@ -124,23 +127,20 @@ nnoremap gk k
 nmap <leader>fef ggVG=
 
 " Move around splits window with <c-hjkl>
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
+" nnoremap <c-j> <c-w>j
+" nnoremap <c-k> <c-w>k
+" nnoremap <c-h> <c-w>h
+" nnoremap <c-l> <c-w>l
 
-" Quick ESC
-imap jj <ESC>
+" Tab between windows
+noremap <tab> <c-w><c-w>
 
 " Switch/create tab(s) in quick - Really handy!
 " Conflict with move around splits
-" map <C-l> :tabn<CR>
-" map <C-h> :tabp<CR>
-" map <C-t> :tabnew<CR>
-" map <C-w> :tabclose<CR>
-
-" Tab between buffers
-noremap <tab> <c-w><c-w>
+map <C-l> :tabn<CR>
+map <C-h> :tabp<CR>
+map <C-t> :tabnew<CR>
+map <C-w> :tabclose<CR>
 
 " Switch between last two buffers
 nnoremap <leader><leader> <C-^>
