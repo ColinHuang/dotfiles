@@ -40,6 +40,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'elzr/vim-json'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'honza/dockerfile.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
