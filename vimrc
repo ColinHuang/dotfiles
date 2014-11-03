@@ -153,6 +153,9 @@ inoremap <C-U> <C-G>u<C-U>
 command Todo noautocmd vimgrep /TODO\|FIXME/j * | cw
 "command Todo Ack! 'TODO\|FIXME' " If use the ack-vim plugin
 
+" Move visual block
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
