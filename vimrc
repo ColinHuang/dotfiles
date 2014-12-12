@@ -41,6 +41,7 @@ Plugin 'elzr/vim-json'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'honza/dockerfile.vim'
+Plugin 'fatih/vim-go'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -224,7 +225,6 @@ nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " CtrlP
 " ==========================================================================
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,node_modules,build     " MacOSX/Linux
-let g:ctrlp_by_filename = 1
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn|tmp)$',
   \ 'file': '\v\.(exe|so|dll)$',
