@@ -207,3 +207,11 @@ bindkey -s "^[Ok" "+"
 bindkey -s "^[Om" "-"
 bindkey -s "^[Oj" "*"
 bindkey -s "^[Oo" "/"
+
+# Go environment
+export GOROOT=$HOME/go
+# export GOBIN=$GOROOT/bin
+# export GOARCH=386
+# export GOOS=linux
+export PATH=$GOROOT/bin:$PATH
+export GOPATH=$HOME/workspace/Go

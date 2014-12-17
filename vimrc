@@ -57,10 +57,10 @@ filetype plugin indent on    " required
 " General setting
 " ==========================================================================
 set nocompatible            " Use vim, no vi defaults
+syntax on
 colorscheme yzlin256_2
 set t_Co=256 
-"let &colorcolumn=join(range(81,999),",")
-"highlight ColorColumn ctermbg=235 guibg=#2c2d27
+highlight ColorColumn ctermbg=233 guibg=#2c2d27
 
 set nobackup
 set nowritebackup
@@ -76,7 +76,6 @@ set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set autoread    " Set to auto read when a file is changed from the outside
 set mouse=a
-syntax on
 
 " Tabs and spaces handling
 set smarttab               " Uses shiftwidth instead of tabstop at start of lines
@@ -204,7 +203,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 let g:pymode_folding = 0
 let g:pymode_rope = 0
 let g:pymode_trim_whitespaces = 1
-let g:pymode_options_colorcolumn = 0
+" let g:pymode_options_colorcolumn = 0
+" let g:pymode_doc = 0
 autocmd WinEnter * if winnr('$') == 1 && ! empty(&buftype) && ! &modified | quit | endif
 
 " ==========================================================================
@@ -214,6 +214,7 @@ nmap <F8> :TagbarToggle<CR>
 " set focus to TagBar when opening it. Conflict with TagbarOpen setting
 " let g:tagbar_autofocus = 0
 autocmd BufEnter *.py nested TagbarOpen
+autocmd BufEnter *.go nested TagbarOpen
 
 " ==========================================================================
 " YouCompleteMe
