@@ -42,6 +42,7 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'honza/dockerfile.vim'
 Plugin 'fatih/vim-go'
+Plugin 'avakhov/vim-yaml'
 Plugin 'rking/ag.vim'
 
 " All of your Plugins must be added before the following line
