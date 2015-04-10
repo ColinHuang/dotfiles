@@ -34,6 +34,7 @@ dst() { docker stop $(docker ps -q -a); }
 #dri() { docker rmi $(docker images -q); }
 alias dl="docker ps -l -q"
 alias ds="docker ps -a"
+alias din="docker inspect"
 alias dim="docker images"
 # Kill all running containers.
 alias dockerkillall='docker kill $(docker ps -q)'
