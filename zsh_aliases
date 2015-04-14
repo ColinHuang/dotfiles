@@ -49,3 +49,5 @@ alias dockerclean='dockercleanc || true && dockercleani'
 alias les="percol"
 alias pst="ps axjf"
 alias hl="highlight -O ansi"
+
+alias cc="cd /home/vagrant/container-station-web/ctstation"
