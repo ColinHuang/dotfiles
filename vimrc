@@ -244,7 +244,6 @@ let g:ctrlp_user_command = {
 " ==========================================================================
 " vim-gitgutter
 " ==========================================================================
-" highlight clear SignColumn
-highlight SignColumn ctermbg=233
+" highlight SignColumn ctermbg=233
 let g:gitgutter_map_keys = 0
 let g:gitgutter_sign_column_always = 1 
