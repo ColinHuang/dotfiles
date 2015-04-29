@@ -181,6 +181,10 @@ function json() {
     python -mjson.tool
 }
 
+function xml() {
+    xmllint --format -
+}
+
 
 export QIP=127.0.0.1
 export QPORT=9000
