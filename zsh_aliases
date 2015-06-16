@@ -39,7 +39,7 @@ alias dim="docker images"
 # Kill all running containers.
 alias dockerkillall='docker kill $(docker ps -q)'
 # Delete all stopped containers.
-alias dockercleanc='printf "\n>>> Deleting stopped containers\n\n" && docker rm $(docker ps -a -q)'
+alias dockercleanc='printf "\n>>> Deleting stopped containers\n\n" && docker rm -f $(docker ps -a -q)'
 # Delete all untagged images.
 alias dockercleani='printf "\n>>> Deleting untagged images\n\n" && docker rmi $(docker images -q -f dangling=true)'
 # Delete all stopped containers and untagged images.
@@ -51,3 +51,4 @@ alias pst="ps axjf"
 alias hl="highlight -O ansi"
 
 alias cc="cd /home/vagrant/container-station-web/ctstation"
+alias ccapp="cd /home/vagrant/container-station-web/app"

@@ -40,7 +40,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'elzr/vim-json'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'honza/dockerfile.vim'
+Plugin 'docker/docker' , {'rtp': '/contrib/syntax/vim/'}
 Plugin 'fatih/vim-go'
 Plugin 'avakhov/vim-yaml'
 Plugin 'rking/ag.vim'
