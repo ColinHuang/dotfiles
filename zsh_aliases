@@ -45,6 +45,11 @@ alias dockercleani='printf "\n>>> Deleting untagged images\n\n" && docker rmi $(
 # Delete all stopped containers and untagged images.
 alias dockerclean='dockercleanc || true && dockercleani'
 
+#alias drm='printf ">>> Deleting stopped containers\n" && docker rm $(docker ps -a -q)'
+alias drmf='printf ">>> Deleting all containers\n" && docker rm -f $(docker ps -a -q)'
+alias drmi='printf ">>> Deleting untagged images\n" && docker rmi $(docker images -q -f dangling=true)'
+
+
 
 alias les="percol"
 alias pst="ps axjf"
