@@ -30,6 +30,7 @@ alias ag='ag -C1'
 # docker
 alias dip="docker inspect --format=\"{{ .NetworkSettings.IPAddress }}\""
 drm() { docker rm -v $(docker ps -q -a); }
+drmi() { docker rmi $(docker images | grep "import-" | awk '{print $1}') }
 dst() { docker stop $(docker ps -q -a); }
 #dri() { docker rmi $(docker images -q); }
 alias dl="docker ps -l -q"
@@ -47,7 +48,7 @@ alias dockerclean='dockercleanc || true && dockercleani'
 
 #alias drm='printf ">>> Deleting stopped containers\n" && docker rm $(docker ps -a -q)'
 alias drmf='printf ">>> Deleting all containers\n" && docker rm -f $(docker ps -a -q)'
-alias drmi='printf ">>> Deleting untagged images\n" && docker rmi $(docker images -q -f dangling=true)'
+#alias drmi='printf ">>> Deleting untagged images\n" && docker rmi $(docker images -q -f dangling=true)'
 
 
 

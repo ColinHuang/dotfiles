@@ -1,8 +1,8 @@
 [branch]
     autosetuprebase = always
 [user]
-    name = Colin 
-	email = sidawei@gmail.com
+    name = Colin Huang
+    email = sidawei@gmail.com
 [alias]
 	co = checkout
     ci = commit
