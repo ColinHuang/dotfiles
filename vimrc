@@ -247,3 +247,12 @@ let g:ctrlp_user_command = {
 " highlight SignColumn ctermbg=233
 let g:gitgutter_map_keys = 0
 let g:gitgutter_sign_column_always = 1 
+
+" ==========================================================================
+" vim-go
+" ==========================================================================
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
