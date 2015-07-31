@@ -1,4 +1,4 @@
 #!/bin/bash
 
 vim +PluginInstall! +qall
-vim +PluginClean +qall
+vim +PluginClean! +qall
