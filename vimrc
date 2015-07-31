@@ -44,6 +44,7 @@ Plugin 'docker/docker' , {'rtp': '/contrib/syntax/vim/'}
 Plugin 'fatih/vim-go'
 Plugin 'avakhov/vim-yaml'
 Plugin 'rking/ag.vim'
+Plugin 'moskytw/nginx-contrib-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -144,6 +145,15 @@ map <C-l> :tabn<CR>
 map <C-h> :tabp<CR>
 map <C-t> :tabnew<CR>
 map <C-w> :tabclose<CR>
+
+" use ,1 ,2 to go specific tab 
+for i in range(1, 9) 
+    exec 'nmap <leader>'.i.' '.i.'gt<CR>' 
+endfor 
+
+" Q was to go ex mode
+" but ex mode is useless to us, so remap it
+noremap Q :qa
 
 " Switch between last two buffers
 nnoremap <leader><leader> <C-^>
