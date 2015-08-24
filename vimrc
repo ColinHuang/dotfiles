@@ -45,16 +45,17 @@ Plugin 'fatih/vim-go'
 Plugin 'avakhov/vim-yaml'
 Plugin 'rking/ag.vim'
 Plugin 'moskytw/nginx-contrib-vim'
+"Plugin 'jelera/vim-javascript-syntax'
+"Plugin 'pangloss/vim-javascript'
+Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'othree/yajs.vim'
+Plugin 'marijnh/tern_for_vim'
+Plugin 'jszakmeister/markdown2ctags'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-" L9
-" FuzzyFinder
-" vim-snipnate
-" mru
-" mileszs/ack.vim
 
 " ==========================================================================
 " General setting
@@ -170,6 +171,14 @@ command Todo noautocmd vimgrep /TODO\|FIXME/j * | cw
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
+" filetype
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+" F-Key
+map <F2> :NERDTreeToggle<CR>
+nmap <F8> :TagbarToggle<CR>
+
+
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
   filetype plugin indent on " Enable file type detection.
@@ -186,12 +195,6 @@ else
   set autoindent " always set autoindenting on
 endif " has("autocmd")
 
-" Convenient command to see the difference between the current buffer and the
-if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
-endif
-
 
 if ! has('gui')
   highlight Comment ctermfg=gray ctermbg=darkblue
@@ -205,7 +208,6 @@ endif
 let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.swp$']
 let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\~$']
 let NERDTreeShowBookmarks=1
-map <F2> :NERDTreeToggle<CR>
 " Automatically quit vim if NERDTree is last and only buffer
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif 
 
@@ -222,17 +224,34 @@ autocmd WinEnter * if winnr('$') == 1 && ! empty(&buftype) && ! &modified | quit
 " ==========================================================================
 " Tagbar
 " ==========================================================================
-nmap <F8> :TagbarToggle<CR>
 " set focus to TagBar when opening it. Conflict with TagbarOpen setting
 " let g:tagbar_autofocus = 0
-autocmd BufEnter *.py nested TagbarOpen
-autocmd BufEnter *.go nested TagbarOpen
+autocmd BufEnter *.py,*.go,*.md nested TagbarOpen
+" autocmd BufEnter *.js,*.css,*.less nested TagbarOpen
+
+" Add support for markdown files in tagbar.
+let g:tagbar_type_markdown = {
+    \ 'ctagstype': 'markdown',
+    \ 'ctagsbin' : '~/.vim/bundle/markdown2ctags/markdown2ctags.py',
+    \ 'ctagsargs' : '-f - --sort=yes',
+    \ 'kinds' : [
+        \ 's:sections',
+        \ 'i:images'
+    \ ],
+    \ 'sro' : '|',
+    \ 'kind2scope' : {
+        \ 's' : 'section',
+    \ },
+    \ 'sort': 0,
+\ }
 
 " ==========================================================================
 " YouCompleteMe
 " ==========================================================================
 let g:ycm_autoclose_preview_window_after_completion=1
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" workaround for tern js: https://github.com/Valloric/YouCompleteMe/issues/570
+autocmd FileType javascript setlocal omnifunc=tern#Complete 
 
 " ==========================================================================
 " CtrlP
