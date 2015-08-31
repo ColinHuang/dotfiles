@@ -51,6 +51,7 @@ Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'othree/yajs.vim'
 Plugin 'marijnh/tern_for_vim'
 Plugin 'jszakmeister/markdown2ctags'
+Plugin 'Mark--Karkat'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -110,7 +111,8 @@ nmap <leader>w :w<cr>
 imap jj <ESC>
 
 " Tired of clearing highlighted searches
-nmap <silent> ,/ :nohlsearch<CR>
+" Conflict with mark plugin. Mark plugin has same mapping.
+" nmap <silent> ,/ :nohlsearch<CR>
 
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
@@ -175,25 +177,9 @@ vnoremap K :m '<-2<CR>gv=gv
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 " F-Key
-map <F2> :NERDTreeToggle<CR>
+nmap <F2> :NERDTreeToggle<CR>
 nmap <F8> :TagbarToggle<CR>
 
-
-" Only do this part when compiled with support for autocommands.
-if has("autocmd")
-  filetype plugin indent on " Enable file type detection.
-  " Put these in an autocmd group, so that we can delete them easily.
-  augroup vimrcEx
-  au!
-  " When editing a file, always jump to the last known cursor position.
-  autocmd BufReadPost *
-    \ if line("'\"") > 1 && line("'\"") <= line("$") |
-    \   exe "normal! g`\"" |
-    \ endif
-  augroup END
-else
-  set autoindent " always set autoindenting on
-endif " has("autocmd")
 
 
 if ! has('gui')
