@@ -212,6 +212,10 @@ bindkey -s "^[Om" "-"
 bindkey -s "^[Oj" "*"
 bindkey -s "^[Oo" "/"
 
+
+bindkey "\033[1~" beginning-of-line
+bindkey "\033[4~" end-of-line
+
 # Go environment
 export GOROOT=$HOME/go
 # export GOBIN=$GOROOT/bin
