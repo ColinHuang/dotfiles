@@ -33,25 +33,34 @@ Plugin 'gmarik/vundle'
 Plugin 'bling/vim-airline'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'klen/python-mode'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-fugitive'
 Plugin 'majutsushi/tagbar'
-Plugin 'elzr/vim-json'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'rking/ag.vim'
+Plugin 'Mark--Karkat'
+
+" #Other lang
+Plugin 'elzr/vim-json'
+Plugin 'klen/python-mode'
 Plugin 'docker/docker' , {'rtp': '/contrib/syntax/vim/'}
 Plugin 'fatih/vim-go'
 Plugin 'avakhov/vim-yaml'
-Plugin 'rking/ag.vim'
 Plugin 'moskytw/nginx-contrib-vim'
-"Plugin 'jelera/vim-javascript-syntax'
-"Plugin 'pangloss/vim-javascript'
+Plugin 'jszakmeister/markdown2ctags'
+
+" #Javascript
+" Plugin 'jelera/vim-javascript-syntax'
+" Plugin 'pangloss/vim-javascript'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'othree/yajs.vim'
 Plugin 'marijnh/tern_for_vim'
-Plugin 'jszakmeister/markdown2ctags'
-Plugin 'Mark--Karkat'
+
+" #CSS
+Plugin 'ap/vim-css-color'
+Plugin 'groenewege/vim-less'
+Plugin 'hail2u/vim-css3-syntax'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
