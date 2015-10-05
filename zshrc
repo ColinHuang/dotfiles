@@ -223,3 +223,6 @@ export GOROOT=$HOME/go
 # export GOOS=linux
 export PATH=$GOROOT/bin:$PATH
 export GOPATH=$HOME/workspace/Go
+
+
+. /usr/share/autojump/autojump.sh

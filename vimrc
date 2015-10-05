@@ -55,7 +55,7 @@ Plugin 'jszakmeister/markdown2ctags'
 " Plugin 'pangloss/vim-javascript'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'othree/yajs.vim'
-Plugin 'marijnh/tern_for_vim'
+" Plugin 'marijnh/tern_for_vim'
 
 " #CSS
 Plugin 'ap/vim-css-color'
