@@ -8,7 +8,7 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="vimrc vim zshrc zsh_aliases gitconfig"    # list of files/folders to symlink in homedir
+files="vimrc vim zshrc zsh_aliases gitconfig tigrc"    # list of files/folders to symlink in homedir
 
 ##########
 
