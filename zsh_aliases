@@ -29,7 +29,8 @@ alias ag='ag -C1'
 # docker
 alias dip="docker inspect --format=\"{{ .NetworkSettings.IPAddress }}\""
 drm() { docker rm -v $(docker ps -q -a); }
-drmi() { docker rmi $(docker images | grep "import-" | awk '{print $1":"$2}') }
+drmi() { docker rmi $(docker images | awk '{print $1":"$2}') }
+drmii() { docker rmi $(docker images | grep "import-" | awk '{print $1":"$2}') }
 dst() { docker stop $(docker ps -q -a); }
 #dri() { docker rmi $(docker images -q); }
 alias dl="docker ps -l -q"
