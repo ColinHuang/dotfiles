@@ -217,12 +217,11 @@ bindkey "\033[1~" beginning-of-line
 bindkey "\033[4~" end-of-line
 
 # Go environment
-export GOROOT=$HOME/go
-# export GOBIN=$GOROOT/bin
-# export GOARCH=386
-# export GOOS=linux
-export PATH=$GOROOT/bin:$PATH
-export GOPATH=$HOME/workspace/Go
+# export GOROOT=$HOME/go
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/workspace
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin:$GOBIN
 
 
 . /usr/share/autojump/autojump.sh
