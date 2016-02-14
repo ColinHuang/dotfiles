@@ -213,6 +213,7 @@ bindkey -s "^[Oj" "*"
 bindkey -s "^[Oo" "/"
 
 
+# workaround for Home/End key from Xshell or Putty
 bindkey "\033[1~" beginning-of-line
 bindkey "\033[4~" end-of-line
 

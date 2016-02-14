@@ -56,11 +56,13 @@ Plugin 'jszakmeister/markdown2ctags'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'othree/yajs.vim'
 " Plugin 'marijnh/tern_for_vim'
+Plugin 'burnettk/vim-angular'
 
 " #CSS
 Plugin 'ap/vim-css-color'
 Plugin 'groenewege/vim-less'
 Plugin 'hail2u/vim-css3-syntax'
+Plugin 'othree/csscomplete.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -126,6 +128,16 @@ imap jj <ESC>
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
+" Set paste/nopaste
+noremap <silent> <Leader>p :set paste!<CR>:set paste?<CR> 
+
+
+" Ref: http://wiki.csie.ncku.edu.tw/vim/vimrc
+" 1. Auto complete when key in '{ with Enter'
+" 2. '{{' to '{}'
+inoremap {<CR> {<CR>}<Esc>ko
+inoremap {{ {}<ESC>i
 
 " Yank & paste via OS X clipboard
 map <leader>p "*p
@@ -247,6 +259,7 @@ let g:ycm_autoclose_preview_window_after_completion=1
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " workaround for tern js: https://github.com/Valloric/YouCompleteMe/issues/570
 autocmd FileType javascript setlocal omnifunc=tern#Complete 
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS noci
 
 " ==========================================================================
 " CtrlP
@@ -268,8 +281,6 @@ let g:ctrlp_user_command = {
 " ==========================================================================
 " vim-gitgutter
 " ==========================================================================
-" highlight SignColumn ctermbg=233
-let g:gitgutter_map_keys = 0
 let g:gitgutter_sign_column_always = 1 
 
 " ==========================================================================
