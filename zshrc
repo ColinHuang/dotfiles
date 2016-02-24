@@ -178,7 +178,8 @@ if netstat -ntul | grep -q :3128; then
 fi
 
 function json() {
-    python -mjson.tool
+    # python -mjson.tool
+    jq .
 }
 
 function xml() {
