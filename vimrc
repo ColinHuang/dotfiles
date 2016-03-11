@@ -39,7 +39,6 @@ Plugin 'majutsushi/tagbar'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'rking/ag.vim'
-Plugin 'Mark--Karkat'
 
 " #Other lang
 Plugin 'elzr/vim-json'
@@ -129,22 +128,14 @@ nmap <leader>w :w<cr>
 imap jj <ESC>
 
 " Tired of clearing highlighted searches
-" Conflict with mark plugin. Mark plugin has same mapping.
-" nmap <silent> ,/ :nohlsearch<CR>
+nmap <silent> ,/ :nohlsearch<CR>
 
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
-" Set paste/nopaste
+" ,p: toggle paste mode
 noremap <silent> <Leader>p :set paste!<CR>:set paste?<CR> 
-
-
-" Ref: http://wiki.csie.ncku.edu.tw/vim/vimrc
-" 1. Auto complete when key in '{ with Enter'
-" 2. '{{' to '{}'
-inoremap {<CR> {<CR>}<Esc>ko
-inoremap {{ {}<ESC>i
 
 " Yank & paste via OS X clipboard
 map <leader>p "*p
