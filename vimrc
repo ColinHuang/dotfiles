@@ -138,8 +138,8 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 noremap <silent> <Leader>p :set paste!<CR>:set paste?<CR> 
 
 " Yank & paste via OS X clipboard
-map <leader>p "*p
-map <leader>y "*y
+" map <leader>p "*p
+" map <leader>y "*y
 
 " Move cursor by display lines when wrapping
 nnoremap j gj
