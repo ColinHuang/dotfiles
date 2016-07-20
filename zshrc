@@ -140,6 +140,7 @@ if exists percol; then
     zle -N percol_select_history
     bindkey '^R' percol_select_history
 fi
+
 function ppgrep() {
     if [[ $1 == "" ]]; then
         PERCOL=percol
@@ -186,6 +187,16 @@ function xml() {
     xmllint --format -
 }
 
+mykill () {
+    # ps h -o pid,command | grep "$@" | grep -v grep | sed 's/^ \+//' | cut -d ' ' -f 1 | xargs -n 1 kill -9
+    ps h -o pid,command | grep "$@" | grep -v grep | sed 's/^ \+//' | cut -d ' ' -f 1 
+}
+
+
+if (( $+commands[tag] )); then
+    tag() { command tag "$@"; source ${TAG_ALIAS_FILE:-/tmp/tag_aliases} 2>/dev/null }
+    alias ag=tag
+fi
 
 export QIP=127.0.0.1
 export QPORT=9000
