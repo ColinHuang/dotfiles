@@ -50,7 +50,7 @@ fi
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git cp docker docker-compose vagrant command-not-found fish-init debian pip ssh-agent autojump)
+plugins=(git cp docker docker-compose vagrant command-not-found fish-init debian pip ssh-agent autojump zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 # conflict with silversearcher-ag
