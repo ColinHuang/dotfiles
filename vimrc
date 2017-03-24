@@ -54,7 +54,6 @@ Plugin 'jszakmeister/markdown2ctags'
 " Plugin 'pangloss/vim-javascript'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'othree/yajs.vim'
-" Plugin 'marijnh/tern_for_vim'
 Plugin 'burnettk/vim-angular'
 
 " #CSS
@@ -122,7 +121,11 @@ let mapleader=","
 :command WQa wqa
 
 " Buffer fast save
-nmap <leader>w :w<cr>
+noremap <leader>w :w<CR>
+noremap <Leader>q :q!<CR>
+noremap <Leader>x :x<CR>
+noremap <Leader>z :w<CR><C-Z>
+noremap <Leader>!w :w !sudo tee %:p > /dev/null<CR>
 
 " Quick ESC
 imap jj <ESC>
@@ -198,6 +201,7 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 " F-Key
 nmap <F2> :NERDTreeToggle<CR>
 nmap <F8> :TagbarToggle<CR>
+set pastetoggle=<F11>
 
 
 

@@ -52,11 +52,21 @@ alias drmf='printf ">>> Deleting all containers\n" && docker rm -f -v $(docker p
 
 
 
+# Stop and Remove all containers
+alias drmf='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'
+
+# Bash into running container
+dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }
+
+# Execute interactive container, e.g., $dex base /bin/bash
+alias dex="docker exec -i -t"
+
 alias les="percol"
 alias pst="ps axjf"
 alias hl="highlight -O ansi"
 
 alias c="cd /home/vagrant/container-station-web"
 alias cc="cd /home/vagrant/container-station-web/ctstation"
-alias ccapp="cd /home/vagrant/container-station-web/app"
+alias cca="cd /home/vagrant/container-station-web/app"
 alias ag="clear && ag"
+alias m="cd /home/vagrant/middleware-dqpkg"
