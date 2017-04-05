@@ -31,7 +31,7 @@
     ; excludesfile = /Users/colin/gitignore/
     editor = /usr/bin/vim
     excludesfile = /home/colin/.gitignore_global
-	pager = diff-so-fancy | less --tabs=4 -RFX
+    pager = diff-so-fancy | less --tabs=4 -RFX
 [apply]
     whitespace = nowarn
 [difftool "sourcetree"]
@@ -52,7 +52,7 @@
     commitEncoding = utf-8
     logOutputEncoding = utf-8
 [color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
+    oldNormal = red bold
+    oldHighlight = red bold 52
+    newNormal = green bold
+    newHighlight = green bold 22
