@@ -52,9 +52,10 @@ Plugin 'jszakmeister/markdown2ctags'
 " #Javascript
 " Plugin 'jelera/vim-javascript-syntax'
 " Plugin 'pangloss/vim-javascript'
-Plugin 'othree/javascript-libraries-syntax.vim'
-Plugin 'othree/yajs.vim'
-Plugin 'burnettk/vim-angular'
+" Plugin 'othree/javascript-libraries-syntax.vim'
+" Plugin 'burnettk/vim-angular'
+Plugin 'posva/vim-vue'
+Plugin 'othree/html5.vim'
 
 " #CSS
 Plugin 'ap/vim-css-color'
@@ -327,3 +328,16 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }
+
+" ==========================================================================
+" airline
+" ==========================================================================
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#buffer_nr_show = 0
+
+" autocmd FileType vue syntax sync fromstart
+" autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
+autocmd BufReadPre *.js let b:javascript_lib_use_vue = 1
