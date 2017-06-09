@@ -70,3 +70,7 @@ alias cc="cd /home/vagrant/container-station-web/ctstation"
 alias cca="cd /home/vagrant/container-station-web/app"
 alias ag="clear && ag"
 alias m="cd /home/vagrant/middleware-dqpkg"
+alias b="cd /home/vagrant/middleware-browser"
+alias q="cd /home/vagrant/middleware-qts"
+alias glf="git log --name-only --oneline"
+alias ducks='du -cks * | sort -rn | head -11' # for the 10 largest files in current directory
