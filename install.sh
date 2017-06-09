@@ -34,10 +34,10 @@ done
 vim +PluginInstall +qall
 
 # For YCM
-sudo apt-get -y install python-dev
-sudo apt-get -y install build-essential cmake 
-cd ~/.vim/bundle/YouCompleteMe
-./install.py --clang-completer
+# sudo apt-get -y install python-dev
+# sudo apt-get -y install build-essential cmake 
+# cd ~/.vim/bundle/YouCompleteMe
+# ./install.py --clang-completer
 
 # For Tern JS
 # cd ~/.vim/bundle/tern_for_vim/

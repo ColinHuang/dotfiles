@@ -50,7 +50,7 @@ fi
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git cp docker docker-compose vagrant command-not-found fish-init debian pip ssh-agent autojump zsh-syntax-highlighting)
+plugins=(git cp docker docker-compose vagrant command-not-found fish-init debian pip ssh-agent autojump)
 
 source $ZSH/oh-my-zsh.sh
 # conflict with silversearcher-ag
@@ -193,6 +193,7 @@ mykill () {
 }
 
 
+# Instantly jump to your ag matches. https://github.com/aykamko/tag
 if (( $+commands[tag] )); then
     tag() { command tag "$@"; source ${TAG_ALIAS_FILE:-/tmp/tag_aliases} 2>/dev/null }
     alias ag=tag
