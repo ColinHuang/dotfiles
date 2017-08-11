@@ -33,7 +33,7 @@ Plugin 'gmarik/vundle'
 Plugin 'bling/vim-airline'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-fugitive'
 Plugin 'majutsushi/tagbar'
 Plugin 'tomtom/tcomment_vim'
@@ -284,7 +284,7 @@ let g:ctrlp_user_command = {
 " ==========================================================================
 " vim-gitgutter
 " ==========================================================================
-let g:gitgutter_sign_column_always = 1 
+set signcolumn=yes
 
 " ==========================================================================
 " vim-go
