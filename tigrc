@@ -1,1 +1,1 @@
-set vertical-split = yes
+set main-view = date author id commit-title:yes,graph,refs
