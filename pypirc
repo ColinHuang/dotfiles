@@ -1,0 +1,7 @@
+[distutils]
+index-servers = sw2
+
+[sw2]
+repository: http://qnap.dorowu.com/pypi/
+username: admin
+password: adminadmin
