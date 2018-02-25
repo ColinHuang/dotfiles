@@ -280,6 +280,7 @@ let g:ctrlp_user_command = {
         \ },
     \ 'fallback': 'find %s -type f'
     \ }
+let g:ctrlp_match_window = 'results:100'
 
 " ==========================================================================
 " vim-gitgutter
@@ -339,5 +340,4 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#buffer_nr_show = 0
 
 autocmd FileType vue syntax sync fromstart
-" autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
 autocmd BufReadPre *.js let b:javascript_lib_use_vue = 1
