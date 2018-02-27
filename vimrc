@@ -1,71 +1,46 @@
-" ==========================================================================
-" Vundle
-" Brief help:
-" $ PluginList - list configured bundles
-" $ PluginInstall(!) - install (update) bundles
-" $ PluginSearch(!) foo - search (or refresh cache first) for foo
-" $ PluginClean(!) - confirm (or auto-approve) removal of unused bundles
-" ==========================================================================
-set nocompatible             " be improved, required
-filetype off                 " required
-
-" http://www.erikzaadi.com/2012/03/19/auto-installing-vundle-from-your-vimrc/
-" Setting up Vundle - the vim plugin bundler
-let iCanHazVundle=1
-let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
-if !filereadable(vundle_readme)
-  echo "Installing Vundle.."
-  echo ""
-  silent !mkdir -p ~/.vim/bundle
-  silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
-  let iCanHazVundle=0
+" vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/vundle'
-
-" My plugins here:
-"
-" original repos on github
-Plugin 'bling/vim-airline'
-Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'tpope/vim-fugitive'
-Plugin 'majutsushi/tagbar'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'rking/ag.vim'
+Plug 'bling/vim-airline'
+Plug 'kien/ctrlp.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'Valloric/YouCompleteMe'
+Plug 'tpope/vim-fugitive'
+Plug 'majutsushi/tagbar'
+Plug 'tomtom/tcomment_vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'rking/ag.vim'
 
 " #Other lang
-Plugin 'elzr/vim-json'
-Plugin 'klen/python-mode'
-Plugin 'docker/docker' , {'rtp': '/contrib/syntax/vim/'}
-Plugin 'fatih/vim-go'
-Plugin 'avakhov/vim-yaml'
-Plugin 'moskytw/nginx-contrib-vim'
-Plugin 'jszakmeister/markdown2ctags'
+Plug 'elzr/vim-json'
+Plug 'klen/python-mode'
+Plug 'docker/docker' , {'rtp': '/contrib/syntax/vim/'}
+Plug 'fatih/vim-go'
+Plug 'avakhov/vim-yaml'
+Plug 'moskytw/nginx-contrib-vim'
+Plug 'jszakmeister/markdown2ctags'
 
 " #Javascript
-" Plugin 'jelera/vim-javascript-syntax'
-" Plugin 'pangloss/vim-javascript'
-" Plugin 'othree/javascript-libraries-syntax.vim'
-" Plugin 'burnettk/vim-angular'
-Plugin 'posva/vim-vue'
-Plugin 'othree/html5.vim'
+" Plug 'jelera/vim-javascript-syntax'
+" Plug 'pangloss/vim-javascript'
+" Plug 'othree/javascript-libraries-syntax.vim'
+" Plug 'burnettk/vim-angular'
+Plug 'posva/vim-vue'
+Plug 'othree/html5.vim'
 
 " #CSS
-Plugin 'ap/vim-css-color'
-Plugin 'groenewege/vim-less'
-Plugin 'hail2u/vim-css3-syntax'
-Plugin 'othree/csscomplete.vim'
+Plug 'ap/vim-css-color'
+Plug 'groenewege/vim-less'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'othree/csscomplete.vim'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+call plug#end()
 
 
 " ==========================================================================
