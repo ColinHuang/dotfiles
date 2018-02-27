@@ -16,6 +16,7 @@ Plug 'majutsushi/tagbar'
 Plug 'tomtom/tcomment_vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'rking/ag.vim'
+Plug 'bronson/vim-trailing-whitespace'
 
 " #Other lang
 Plug 'elzr/vim-json'
@@ -50,12 +51,12 @@ call plug#end()
 set nocompatible            " Use vim, no vi defaults
 syntax on
 colorscheme yzlin256_2
-set t_Co=256 
+set t_Co=256
 highlight ColorColumn ctermbg=233 guibg=#2c2d27
 
 set nobackup
 set nowritebackup
-set noswapfile  
+set noswapfile
 set cursorline
 set number
 set fileencoding=utf-8
@@ -115,7 +116,7 @@ nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 " ,p: toggle paste mode
-noremap <silent> <Leader>p :set paste!<CR>:set paste?<CR> 
+noremap <silent> <Leader>p :set paste!<CR>:set paste?<CR>
 
 " Yank & paste via OS X clipboard
 " map <leader>p "*p
@@ -148,10 +149,10 @@ map <C-h> :tabp<CR>
 map <C-t> :tabnew<CR>
 map <C-w> :tabclose<CR>
 
-" use ,1 ,2 to go specific tab 
-for i in range(1, 9) 
-    exec 'nmap <leader>'.i.' '.i.'gt<CR>' 
-endfor 
+" use ,1 ,2 to go specific tab
+for i in range(1, 9)
+    exec 'nmap <leader>'.i.' '.i.'gt<CR>'
+endfor
 
 " Q was to go ex mode
 " but ex mode is useless to us, so remap it
@@ -180,7 +181,7 @@ nmap <F2> :NERDTreeToggle<CR>
 nmap <F8> :TagbarToggle<CR>
 set pastetoggle=<F11>
 
-
+map <leader><space> :FixWhitespace<cr>
 
 if ! has('gui')
   highlight Comment ctermfg=gray ctermbg=darkblue
@@ -195,7 +196,7 @@ let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.swp$']
 let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\~$']
 let NERDTreeShowBookmarks=1
 " Automatically quit vim if NERDTree is last and only buffer
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif 
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " ==========================================================================
 " python-mode
@@ -237,7 +238,7 @@ let g:tagbar_type_markdown = {
 let g:ycm_autoclose_preview_window_after_completion=1
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " workaround for tern js: https://github.com/Valloric/YouCompleteMe/issues/570
-autocmd FileType javascript setlocal omnifunc=tern#Complete 
+autocmd FileType javascript setlocal omnifunc=tern#Complete
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS noci
 
 " ==========================================================================
@@ -275,7 +276,7 @@ let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
 
 " ==========================================================================
-" gotags 
+" gotags
 " ==========================================================================
 " Manually install: https://github.com/jstemmer/gotags
 let g:tagbar_type_go = {
