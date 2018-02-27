@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cd ~/.vim/bundle/YouCompleteMe
+cd ~/.vim/plugged/YouCompleteMe
 ./install.py --clang-completer

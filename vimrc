@@ -9,8 +9,8 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'bling/vim-airline'
 Plug 'kien/ctrlp.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'Valloric/YouCompleteMe'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'tpope/vim-fugitive'
 Plug 'majutsushi/tagbar'
 Plug 'tomtom/tcomment_vim'
@@ -20,8 +20,9 @@ Plug 'rking/ag.vim'
 " #Other lang
 Plug 'elzr/vim-json'
 Plug 'klen/python-mode'
-Plug 'docker/docker' , {'rtp': '/contrib/syntax/vim/'}
-Plug 'fatih/vim-go'
+" Plug 'moby/moby' , {'rtp': '/contrib/syntax/vim/'}
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'avakhov/vim-yaml'
 Plug 'moskytw/nginx-contrib-vim'
 Plug 'jszakmeister/markdown2ctags'

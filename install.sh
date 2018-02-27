@@ -37,11 +37,6 @@ vim +PlugInstall +qall
 # cd ~/.vim/bundle/YouCompleteMe
 # ./install.py --clang-completer
 
-# For Tern JS
-# cd ~/.vim/bundle/tern_for_vim/
-# npm install
-
-
 
 install_zsh () {
 # Test to see if zshell is installed.  If it is:
