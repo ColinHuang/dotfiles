@@ -1,3 +1,5 @@
+" vim: ft=vim foldmethod=marker foldcolumn=1
+
 " vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -8,7 +10,6 @@ endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'bling/vim-airline'
-Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'tpope/vim-fugitive'
@@ -17,6 +18,8 @@ Plug 'tomtom/tcomment_vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'rking/ag.vim'
 Plug 'bronson/vim-trailing-whitespace'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " #Other lang
 Plug 'elzr/vim-json'
@@ -189,7 +192,7 @@ endif
 
 
 " ==========================================================================
-" NERDTree
+" NERDTree {{{
 " ==========================================================================
 " let NERDTreeChDirMode=2
 let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.swp$']
@@ -198,8 +201,9 @@ let NERDTreeShowBookmarks=1
 " Automatically quit vim if NERDTree is last and only buffer
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
+" }}}
 " ==========================================================================
-" python-mode
+" python-mode {{{
 " ==========================================================================
 let g:pymode_folding = 0
 let g:pymode_rope = 0
@@ -208,8 +212,9 @@ let g:pymode_trim_whitespaces = 1
 " let g:pymode_doc = 0
 autocmd WinEnter * if winnr('$') == 1 && ! empty(&buftype) && ! &modified | quit | endif
 
+" }}}
 " ==========================================================================
-" Tagbar
+" Tagbar {{{
 " ==========================================================================
 " set focus to TagBar when opening it. Conflict with TagbarOpen setting
 " let g:tagbar_autofocus = 0
@@ -232,8 +237,9 @@ let g:tagbar_type_markdown = {
     \ 'sort': 0,
 \ }
 
+" }}}
 " ==========================================================================
-" YouCompleteMe
+" YouCompleteMe {{{
 " ==========================================================================
 let g:ycm_autoclose_preview_window_after_completion=1
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
@@ -241,31 +247,15 @@ nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 autocmd FileType javascript setlocal omnifunc=tern#Complete
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS noci
 
+" }}}
 " ==========================================================================
-" CtrlP
-" ==========================================================================
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,node_modules,build     " MacOSX/Linux
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn|tmp)$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ 'link': 'some_bad_symbolic_links',
-  \ }
-let g:ctrlp_user_command = {
-    \ 'types': {
-        \ 1: ['.git', 'cd %s && git ls-files . -co --exclude-standard'],
-        \ 2: ['.hg', 'hg --cwd %s locate -I .'],
-        \ },
-    \ 'fallback': 'find %s -type f'
-    \ }
-let g:ctrlp_match_window = 'results:100'
-
-" ==========================================================================
-" vim-gitgutter
+" vim-gitgutter {{{
 " ==========================================================================
 set signcolumn=yes
 
+" }}}
 " ==========================================================================
-" vim-go
+" vim-go {{{
 " ==========================================================================
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -275,8 +265,9 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
 
+" }}}
 " ==========================================================================
-" gotags
+" gotags {{{
 " ==========================================================================
 " Manually install: https://github.com/jstemmer/gotags
 let g:tagbar_type_go = {
@@ -307,14 +298,78 @@ let g:tagbar_type_go = {
     \ 'ctagsargs' : '-sort -silent'
 \ }
 
+" }}}
 " ==========================================================================
-" airline
+" airline {{{
 " ==========================================================================
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#buffer_nr_show = 0
+
+" }}}
+" ==========================================================================
+" FZF {{{
+" ==========================================================================
+
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+" [Buffers] Jump to the existing window if possible
+let g:fzf_buffers_jump = 1
+
+" [[B]Commits] Customize the options used by 'git log':
+let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+
+" Hide statusline of terminal buffer
+autocmd! FileType fzf
+autocmd  FileType fzf set laststatus=0 noshowmode noruler
+  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+
+" }}}
+" ==========================================================================
+" others FZF {{{
+" ==========================================================================
+" let $FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g "" --path-to-ignore ~/.vim/.ignore'
+let $FZF_DEFAULT_OPTS='--height 20% --reverse --border --multi'
+" <M-f> (Option-f)
+nmap ƒ :Ag<Space>
+" nmap <C-o> :Buffers<CR>
+nmap <C-p> :Files<CR>
+autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
+
+" }}}
+" ==========================================================================
+" yen3 FZF {{{
+" ==========================================================================
+" key binding
+autocmd VimEnter * command! Yen3Files
+  \ call fzf#vim#files(<q-args>, {'left': '50%', 'options': '--reverse --prompt=""'})
+
+autocmd VimEnter * command! Yen3Ag
+  \ call fzf#vim#ag(<q-args>, {'left': '80%', 'options': '-e --reverse --prompt=""'})
+
+autocmd VimEnter * command! Yen3AgCursorWord
+  \ call fzf#vim#ag(<q-args>, {'left': '80%', 'options': '-e --reverse --prompt="" -q '. shellescape(expand('<cword>'))})
+
+noremap <silent><C-P> :Yen3Files<CR>
+noremap <silent><leader>s :Yen3Ag<CR>
+noremap <silent><leader>ss :Yen3AgCursorWord<CR>
+noremap <silent><leader>b :Buffers<CR>
+" }}}
 
 autocmd FileType vue syntax sync fromstart
 autocmd BufReadPre *.js let b:javascript_lib_use_vue = 1
