@@ -239,3 +239,6 @@ export PATH=$PATH:$GOROOT/bin:$GOBIN
 
 
 . /usr/share/autojump/autojump.sh
+
+
+source "$HOME/.oh-my-zsh/custom/themes/spaceship.zsh-theme"
