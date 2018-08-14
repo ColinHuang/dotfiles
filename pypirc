@@ -2,6 +2,6 @@
 index-servers = sw2
 
 [sw2]
-repository: http://qnap.dorowu.com/pypi/
+repository: http://pypi.qnap.me/
 username: admin
 password: adminadmin

@@ -11,7 +11,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'bling/vim-airline'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+" Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'tpope/vim-fugitive'
 Plug 'majutsushi/tagbar'
 Plug 'tomtom/tcomment_vim'
@@ -20,6 +20,22 @@ Plug 'rking/ag.vim'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+
+" auto complete
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
+Plug 'Shougo/neco-syntax'      " language syntax
+Plug 'zchee/deoplete-jedi'     " Python
+Plug 'Rip-Rip/clang_complete'  " C/C++
+Plug 'zchee/deoplete-go', { 'do': 'make'} " Go
+Plug 'carlitux/deoplete-ternjs' " JavaScript
+Plug 'wokalski/autocomplete-flow' " JavaScript
 
 " #Other lang
 Plug 'elzr/vim-json'
@@ -369,6 +385,12 @@ noremap <silent><C-P> :Yen3Files<CR>
 noremap <silent><leader>s :Yen3Ag<CR>
 noremap <silent><leader>ss :Yen3AgCursorWord<CR>
 noremap <silent><leader>b :Buffers<CR>
+" }}}
+
+" ==========================================================================
+" deoplete {{{
+" ==========================================================================
+let g:deoplete#enable_at_startup = 1
 " }}}
 
 autocmd FileType vue syntax sync fromstart

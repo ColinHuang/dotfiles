@@ -4,5 +4,7 @@
 oh-my-zsh/
 vim/.netrwhist
 vim/bundle/
+vim/plugged
+pip/
 
 
