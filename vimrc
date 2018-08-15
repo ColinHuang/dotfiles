@@ -61,6 +61,8 @@ Plug 'groenewege/vim-less'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'othree/csscomplete.vim'
 
+Plug 'morhetz/gruvbox'
+
 call plug#end()
 
 
@@ -69,8 +71,10 @@ call plug#end()
 " ==========================================================================
 set nocompatible            " Use vim, no vi defaults
 syntax on
-colorscheme yzlin256_2
+" colorscheme yzlin256_2
+colorscheme gruvbox 
 set t_Co=256
+set background=dark
 highlight ColorColumn ctermbg=233 guibg=#2c2d27
 
 set nobackup
