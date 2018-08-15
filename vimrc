@@ -39,7 +39,8 @@ Plug 'wokalski/autocomplete-flow' " JavaScript
 
 " #Other lang
 Plug 'elzr/vim-json'
-Plug 'klen/python-mode'
+Plug 'python-mode/python-mode', { 'branch': 'develop' }
+
 " Plug 'moby/moby' , {'rtp': '/contrib/syntax/vim/'}
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
