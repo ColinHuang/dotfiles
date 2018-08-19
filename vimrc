@@ -39,13 +39,13 @@ Plug 'wokalski/autocomplete-flow' " JavaScript
 
 " #Other lang
 Plug 'elzr/vim-json'
-Plug 'python-mode/python-mode', { 'branch': 'develop' }
+" Plug 'python-mode/python-mode', { 'branch': 'develop' }
+Plug 'vim-syntastic/syntastic'
 
 " Plug 'moby/moby' , {'rtp': '/contrib/syntax/vim/'}
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'avakhov/vim-yaml'
-Plug 'moskytw/nginx-contrib-vim'
 Plug 'jszakmeister/markdown2ctags'
 
 " #Javascript
@@ -72,11 +72,10 @@ call plug#end()
 " ==========================================================================
 set nocompatible            " Use vim, no vi defaults
 syntax on
-" colorscheme yzlin256_2
 colorscheme gruvbox 
-set t_Co=256
+let g:gruvbox_contrast_dark='hard'
 set background=dark
-highlight ColorColumn ctermbg=233 guibg=#2c2d27
+set t_Co=256
 
 set nobackup
 set nowritebackup
@@ -207,10 +206,6 @@ set pastetoggle=<F11>
 
 map <leader><space> :FixWhitespace<cr>
 
-if ! has('gui')
-  highlight Comment ctermfg=gray ctermbg=darkblue
-endif
-
 
 " ==========================================================================
 " NERDTree {{{
@@ -226,12 +221,14 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 " ==========================================================================
 " python-mode {{{
 " ==========================================================================
+autocmd WinEnter * if winnr('$') == 1 && ! empty(&buftype) && ! &modified | quit | endif
 let g:pymode_folding = 0
 let g:pymode_rope = 0
 let g:pymode_trim_whitespaces = 1
 " let g:pymode_options_colorcolumn = 0
 " let g:pymode_doc = 0
-autocmd WinEnter * if winnr('$') == 1 && ! empty(&buftype) && ! &modified | quit | endif
+" let g:pymode_python = 'python'
+" let g:pymode_lint=1
 
 " }}}
 " ==========================================================================
@@ -396,6 +393,24 @@ noremap <silent><leader>b :Buffers<CR>
 " deoplete {{{
 " ==========================================================================
 let g:deoplete#enable_at_startup = 1
+" }}}
+
+" ==========================================================================
+" Syntastic {{{
+" ==========================================================================
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+"
+" nnoremap <Leader>e :Errors<CR>
+" nnoremap <Leader>ee :SyntasticToggleMode<CR>
+"
+" let g:syntastic_python_python_exec = 'python'
+" let g:syntastic_python_checkers = ['python', 'flake8', 'pep8', 'pylint']
 " }}}
 
 autocmd FileType vue syntax sync fromstart
