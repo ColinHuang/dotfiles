@@ -11,7 +11,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'bling/vim-airline'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-" Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'tpope/vim-fugitive'
 Plug 'majutsushi/tagbar'
 Plug 'tomtom/tcomment_vim'

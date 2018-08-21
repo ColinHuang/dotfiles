@@ -36,8 +36,13 @@ cd ~/dotfiles
 Something else
 --------------
 1. Compile YCM before using it. Please check https://github.com/Valloric/YouCompleteMe
-
-
+* YCM for MAC with pyenv
+```
+brew install cmake
+export PYTHON_CONFIGURE_OPTS="--enable-framework" pyenv install 3.7.0
+cd ~/.vim/bundle/YouCompleteMe
+./install.py --clang-completer
+```
 
 Keyboard Shortcuts (Temp)
 ------------------
@@ -48,13 +53,6 @@ Keyboard Shortcuts (Temp)
 * ```F5 ESC``` Enable Fast PHP Folds.
 * ```F6 ESC``` Enable PHP Folds.
 * ```F7 ESC``` Disable PHP Folds.
-
-Automation (Temp)
-----------
-* Create a new *.html file with automatic content.
-* Remove tailing spaces.
-* Replace tabs with 4 spaces.
-* When saving a *.scss file, a mapping CSS file will be created or updated.
 
 Reference
 ---------
