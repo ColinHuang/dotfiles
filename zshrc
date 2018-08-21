@@ -38,34 +38,22 @@ fi
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git cp docker docker-compose vagrant command-not-found fish-init debian pip ssh-agent autojump)
+plugins=(git cp docker docker-compose vagrant command-not-found debian pip ssh-agent pyenv virtualenv)
 
 source $ZSH/oh-my-zsh.sh
 # conflict with silversearcher-ag
 unalias ag
 [[ -n "${key[Up]}"      ]] && bindkey  "${key[Up]}"      history-search-backward
 [[ -n "${key[Down]}"    ]] && bindkey  "${key[Down]}"    history-search-forward
-if type fish-init > /dev/null; then
-    alias finit=fish-init
-fi
 
 # User configuration
-
-#export PATH=$HOME/bin:/usr/local/bin:/usr/local/go/bin:$PATH
-# export MANPATH="/usr/local/man:$MANPATH"
-# http proxy
-#dpkg-query -W squid3 2>&1 1>/dev/null && export http_proxy=http://127.0.0.1:3128
 # DISPLAY
 remote_ip=`env | awk '$0 ~ /^SSH_CLIENT=/ {print substr($1, index($1, "=") + 1)}'`
 if [ ! -z "$remote_ip" ] ; then
     export DISPLAY=$remote_ip:0
     echo DISPLAY=$DISPLAY
 fi
-# pythonbrew
-[[ -s "$HOME/.pythonbrew/etc/bashrc" ]] && source "$HOME/.pythonbrew/etc/bashrc"
-# git completion
-#[ -f ~/.git-bash-completion.sh ] && . ~/.git-bash-completion.sh
-#complete -W "$(echo $(grep '^ssh ' ~/.bash_history | sort -u | sed 's/^ssh //'))" ssh
+
 # ssh loop
 function sshl() 
 {
@@ -75,6 +63,7 @@ function sshl()
         read "Press any key to re-connect... or wait $timeout seconds to restart" -t $timeout foobar
     done
 }
+
 function git-export-diff() {
     if [ $# -ne 1 ] ; then
         echo "git-export-diff <version number>"
@@ -87,9 +76,11 @@ function git-export-diff() {
         git show $1:$i > $1/$i
     done
 }
+
 function man () {
     /usr/bin/man $@ || (help $@ 2> /dev/null && help $@ | less)
 }
+
 # history
 export HISTCONTROL=erasedups
 export HISTTIMEFORMAT='%F %T '
@@ -98,21 +89,6 @@ function tl()
 {
     tree -C $* | less -R
 }
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-## pyenv
-#[[ -r "/usr/local/bin/virtualenvwrapper_lazy.sh" ]] && source "/usr/local/bin/virtualenvwrapper_lazy.sh"
-#[ -n "$VIRTUAL_ENV" ] && source "$VIRTUAL_ENV/bin/activate"
-#if type pyenv 2>&1 >/dev/null; then
-#    eval "$(pyenv init -)"
-#    export PATH="$HOME/.pyenv/bin:$PATH"
-#fi
-
 
 function exists { which $1 &> /dev/null }
 
@@ -147,7 +123,6 @@ function ppkill() {
     fi
     ppgrep $QUERY | xargs kill $*
 }
-#source ~/.fzf.zsh
 
 #bindkey "^J" backward-char
 #bindkey "^H" backward-word #Notice!
@@ -167,7 +142,6 @@ if netstat -ntul | grep -q :3128; then
 fi
 
 function json() {
-    # python -mjson.tool
     jq .
 }
 
@@ -176,15 +150,14 @@ function xml() {
 }
 
 mykill () {
-    # ps h -o pid,command | grep "$@" | grep -v grep | sed 's/^ \+//' | cut -d ' ' -f 1 | xargs -n 1 kill -9
     ps h -o pid,command | grep "$@" | grep -v grep | sed 's/^ \+//' | cut -d ' ' -f 1 
 }
 
-
 # Instantly jump to your ag matches. https://github.com/aykamko/tag
 if (( $+commands[tag] )); then
+    export TAG_SEARCH_PROG=ag  # replace with rg for ripgrep
     tag() { command tag "$@"; source ${TAG_ALIAS_FILE:-/tmp/tag_aliases} 2>/dev/null }
-    alias ag=tag
+    alias ag=tag  # replace with rg for ripgrep
 fi
 
 export QIP=127.0.0.1
