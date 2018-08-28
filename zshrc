@@ -38,7 +38,7 @@ fi
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git cp docker docker-compose vagrant command-not-found debian pip ssh-agent pyenv virtualenv)
+plugins=(git cp docker docker-compose vagrant command-not-found debian pip ssh-agent pyenv virtualenv kubectl)
 
 source $ZSH/oh-my-zsh.sh
 # conflict with silversearcher-ag

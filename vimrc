@@ -257,13 +257,18 @@ let g:tagbar_type_markdown = {
 
 " }}}
 " ==========================================================================
-" YouCompleteMe {{{
+" YCM YouCompleteMe {{{
 " ==========================================================================
 let g:ycm_autoclose_preview_window_after_completion=1
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " workaround for tern js: https://github.com/Valloric/YouCompleteMe/issues/570
 autocmd FileType javascript setlocal omnifunc=tern#Complete
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS noci
+
+nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
 
 " }}}
 " ==========================================================================
