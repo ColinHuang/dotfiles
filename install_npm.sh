@@ -1,4 +1,4 @@
 #!/bin/bash
 
 sudo npm i -g npm
-npm install -g diff-so-fancy
+sudo npm install -g diff-so-fancy
