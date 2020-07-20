@@ -11,7 +11,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'bling/vim-airline'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+" Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'tpope/vim-fugitive'
 Plug 'majutsushi/tagbar'
 Plug 'tomtom/tcomment_vim'
@@ -21,21 +21,7 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-" auto complete
-" if has('nvim')
-"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" else
-"   Plug 'Shougo/deoplete.nvim'
-"   Plug 'roxma/nvim-yarp'
-"   Plug 'roxma/vim-hug-neovim-rpc'
-" endif
-
-Plug 'Shougo/neco-syntax'      " language syntax
-Plug 'zchee/deoplete-jedi'     " Python
-Plug 'Rip-Rip/clang_complete'  " C/C++
-Plug 'zchee/deoplete-go', { 'do': 'make'} " Go
-Plug 'carlitux/deoplete-ternjs' " JavaScript
-Plug 'wokalski/autocomplete-flow' " JavaScript
+Plug 'chr4/nginx.vim'
 
 " #Other lang
 Plug 'elzr/vim-json'
@@ -47,20 +33,6 @@ Plug 'ekalinin/Dockerfile.vim'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'avakhov/vim-yaml'
 Plug 'jszakmeister/markdown2ctags'
-
-" #Javascript
-" Plug 'jelera/vim-javascript-syntax'
-" Plug 'pangloss/vim-javascript'
-" Plug 'othree/javascript-libraries-syntax.vim'
-" Plug 'burnettk/vim-angular'
-Plug 'posva/vim-vue'
-Plug 'othree/html5.vim'
-
-" #CSS
-Plug 'ap/vim-css-color'
-Plug 'groenewege/vim-less'
-Plug 'hail2u/vim-css3-syntax'
-Plug 'othree/csscomplete.vim'
 
 Plug 'morhetz/gruvbox'
 
@@ -236,7 +208,7 @@ let g:pymode_trim_whitespaces = 1
 " ==========================================================================
 " set focus to TagBar when opening it. Conflict with TagbarOpen setting
 " let g:tagbar_autofocus = 0
-autocmd BufEnter *.py,*.go,*.md nested TagbarOpen
+autocmd BufEnter *.py,*.go,*.cpp,*.h,*.c,*.md nested TagbarOpen
 " autocmd BufEnter *.js,*.css,*.less nested TagbarOpen
 
 " Add support for markdown files in tagbar.
